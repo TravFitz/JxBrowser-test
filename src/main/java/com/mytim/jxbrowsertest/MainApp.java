@@ -36,7 +36,7 @@ public class MainApp extends Application {
         bv.setLayoutX(0);
         Pane close = new Pane();
         close.setPrefSize(50,50);
-        close.setStyle("-fx-fill-color:black;");
+        close.setStyle("-fx-background-color: black;");
         close.setOnMouseClicked((eh) -> {
             stage.close();
         });
