@@ -16,7 +16,7 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        System.setProperty("jxbrowser.license.key", "1BNDIEOFAYWPMWDC5MA3L55RBTJ5858XHN6FMVP3SW2NEIMWDBOSXGSU54VZ7PNKHUKFUA");
+        System.setProperty("jxbrowser.license.key", "*insert test key here*");
  
         Engine engine = Engine.newInstance(EngineOptions.newBuilder(RenderingMode.HARDWARE_ACCELERATED).build());
         
@@ -34,16 +34,26 @@ public class MainApp extends Application {
         
         root.getChildren().add(bp);
         bv.setLayoutX(0);
+        Pane closejx = new Pane();
+        closejx.setPrefSize(50,50);
+        closejx.setStyle("-fx-background-color: black;");
+        closejx.setOnMouseClicked((eh) -> {
+            browser.close();
+            engine.close();
+        });
+        closejx.setLayoutX(800);
+        closejx.setLayoutY(0);
+        
         Pane close = new Pane();
         close.setPrefSize(50,50);
-        close.setStyle("-fx-background-color: black;");
+        close.setStyle("-fx-background-color: blue;");
         close.setOnMouseClicked((eh) -> {
             stage.close();
         });
         close.setLayoutX(800);
-        close.setLayoutY(0);
+        close.setLayoutY(50);
         
-        root.getChildren().add(close);
+        root.getChildren().addAll(closejx,close);
         
         Scene scene = new Scene(root);
         
